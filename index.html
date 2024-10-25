@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Multi-Spectral</title>
+        <!-- <link rel="stylesheet" href="./styles.css"/>     -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script src="js/gl-matrix-min.js"></script>
+        <script src="js/biglime-min.js"></script>
+        <script src="js/Viewer.js"></script>  
+
+        <script type="text/javascript">
+			function main() {
+                document.viewer0 = new Viewer( document.getElementById('viewer0_div') );
+                document.viewer1 = new Viewer( document.getElementById('viewer1_div') );
+                document.viewer2 = new Viewer( document.getElementById('viewer2_div') );
+                document.viewer3 = new Viewer( document.getElementById('viewer3_div') );			
+			}
+		</script>
+    </head>
+   
+
+    <body style="background-color: #d0d0d0;" onload="main()">
+        <div style="width:100%; height:100%;">
+            <div style="width:90%; margin:auto;">
+                <span style = "font-size:1.2em; font-family:Tahoma, 'Times New Roman', Times, serif;">
+                    <br/>
+                    <h1 style="text-align:center; margin-bottom:0px">Segments at different energies and resolutions</h1>
+                    <br/><br/>
+                    <p>Below is a sampling of segments reconstructed from scans taken at different energies and resolutions.</p>
+                    <ul style="list-style-position: inside; padding-left: 0;">
+                     <li>Use the radio buttons at the top of each viewport to switch between energies/resolutions.</li>
+                     <li>Adjust the pan/zoom/contrast with the mouse, after selecting the corresponding mode below the viewport.</li>
+                     <li>Additional info is at the bottom of the page.</li>
+                    </ul>
+
+                
+                    <br/><br/>
+                    <h3>A) Scroll 2, Segment 20230801194757</h3>
+                    <p></p>
+                    <ul style="list-style-position: inside; padding-left: 0;">
+                        <li>Approximate segment dimensions: 3.7 cm &#215; 0.8 cm </li>
+                        <li>Layers 27 thru 38 (averaged)</li>
+                        <li>This segment has been rotated by 90&deg; (so the top of the scroll is at the right)</li>
+                    </ul>
+
+                    <div id="viewer0_div" style="height:640px; width:100%; position:relative;" data-img0="Scroll2_Seg94757_88kev_27-38.jpg" 
+                        data-img1="Scroll2_Seg94757_54kev_27-38.jpg" data-img2="Scroll2_Seg94757_Diff.jpg"  
+                        data-label0="88 keV, 7.9 &mu;m" data-label1="54 keV, 7.9 &mu;m" data-label2="Difference" 
+                        data-rotation="90">
+                    </div>
+
+
+                    <br/><br/> <br/><br/> <br/><br/>        
+                    <h3>B) Scroll 3, Segment 20231031231220</h3>
+                    <p></p>
+                    <ul style="list-style-position: inside; padding-left: 0;">
+                        <li>Approximate segment dimensions: 3.1 cm &#215; 1.0 cm </li>
+                        <li>Layers 69 thru 86 (averaged)</li>
+                        <li>This segment has been rotated by 90&deg; (so the top of the scroll is at the right)</li>
+                    </ul>
+
+                    <div id="viewer1_div" style="height:640px; width:100%; position:relative;" data-img0="Scroll3_Seg1220_53kev_23-40.jpg" 
+                        data-img1="Scroll3_Seg1220_70kev_23-40.jpg" data-img2="Scroll3_Seg1220_Diff.jpg"  
+                        data-label0="53 keV, 3.2 &mu;m" data-label1="70 keV, 3.2 &mu;m" data-label2="Difference" 
+                        data-rotation="90">
+                    </div>
+
+                    
+                    <br/><br/> <br/><br/> <br/><br/>        
+                    <h3>C) Scroll 3, Segment 20240618142020 (cropped)</h3>
+                    <p></p>
+                    <ul style="list-style-position: inside; padding-left: 0;">
+                        <li>Approximate segment dimensions: 6.3 cm &#215; 1.7 cm </li>
+                        <li>The full segment is about 3 times wider than the cropped version shown here</li>
+                        <li>Layers 28 thru 35 (averaged)</li>
+                    </ul>
+
+                    <div id="viewer2_div" style="height:640px; width:100%; position:relative;" data-img0="Scroll3_Seg2020_53kev_28-35.jpg" 
+                        data-img1="Scroll3_Seg2020_70kev_28-35.jpg" data-img2="Scroll3_Seg2020_Diff.jpg"  
+                        data-label0="53 keV, 7.9 &mu;m" data-label1="70 keV, 3.2 &mu;m" data-label2="Difference" 
+                        data-rotation="0">
+                    </div>
+
+                    
+                    <br/><br/> <br/><br/> <br/><br/>        
+                    <h3>D) Scroll 4, Segment 20231210132040</h3>
+                    <p></p>
+                    <ul style="list-style-position: inside; padding-left: 0;">
+                        <li>Approximate segment dimensions: 8.1 cm &#215; 6.6 cm </li>
+                        <li>Layers 12 thru 20  (averaged)</li>
+                    </ul>
+
+                    <div id="viewer3_div" style="height:1024px; width:100%; position:relative;" data-img0="Scroll4_Seg32040_53kev_12-20.jpg" 
+                        data-img1="Scroll4_Seg32040_88kev_12-20.jpg" data-img2="Scroll4_Seg32040_Diff.jpg" 
+                        data-label0="53 keV, 7.9 &mu;m" data-label1="88 keV, 3.2 &mu;m" data-label2="Difference" 
+                        data-rotation="0">
+                    </div>
+
+
+                    <br/><br/><br/><br/><br/>
+                    <h3>Notes</h3>
+                    <ol style="margin-bottom: 1em;">
+                        <li style="margin-bottom: 1em;">The images were extracted from the scroll volumes with 
+                            <a href = https://github.com/Paul-G2/VesuviusMultiSpectral/python>these</a> python scripts. (Essentially a python implementation of 
+                        Volume Cartographer's <span style="font-family: Courier New, Courier, monospace;">layers_from_ppm</span> utility, but using the improved 
+                        affine transforms described <a href = https://github.com/Paul-G2/VesuviusScrollAlignment>here</a>,
+                        and incorporating <a href = https://github.com/educelab/volume-cartographer/issues/104>this</a> bugfix.)</li>
+
+                        <li style="margin-bottom: 1em;">After extraction, a scale and offset was applied to the pixel values of the first image in each set, to match the 
+                            brightness and contrast of the second image as closely as possible.
+                        </li>
+
+                        <li style="margin-bottom: 1em;">Higher contrast settings were used for displaying the third (i.e., difference) images, to amplify any features.</li>
+
+                        <li style="margin-bottom: 1em;">To keep the file sizes manageable, the images were converted to jpegs for this page. 
+                            This introduces some artifacts and loss of bit-depth, but the visual differences seem to be very minor. 
+                            If you want to examine full tiff images, you can generate them with the python scripts linked in item #1.
+                        </li>                        
+                    </ol>
+                    
+                </span>
+            </div>
+        </div>
+    </body>
+
+</html>
