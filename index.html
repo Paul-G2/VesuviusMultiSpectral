@@ -3,7 +3,6 @@
     <head>
         <meta charset="utf-8">
         <title>Multi-Spectral</title>
-        <!-- <link rel="stylesheet" href="./styles.css"/>     -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
         <script src="js/gl-matrix-min.js"></script>
         <script src="js/biglime-min.js"></script>
@@ -11,11 +10,19 @@
 
         <script type="text/javascript">
 			function main() {
-                document.viewer0 = new Viewer( document.getElementById('viewer0_div') );
-                document.viewer1 = new Viewer( document.getElementById('viewer1_div') );
-                document.viewer2 = new Viewer( document.getElementById('viewer2_div') );
-                document.viewer3 = new Viewer( document.getElementById('viewer3_div') );			
-			}
+                document.viewers = [];
+                document.viewers.push( new Viewer(document.getElementById('viewer0_div')) );
+                document.viewers.push( new Viewer(document.getElementById('viewer1_div')) );
+                document.viewers.push( new Viewer(document.getElementById('viewer2_div')) );
+                document.viewers.push( new Viewer(document.getElementById('viewer3_div')) );
+                
+                loadViewport = function(vpIndex) {
+                    if (vpIndex < document.viewers.length) {
+                        document.viewers[vpIndex].loadImages( function() { loadViewport(vpIndex+1); } );
+                    }
+                }
+                loadViewport(0);
+            }
 		</script>
     </head>
    
