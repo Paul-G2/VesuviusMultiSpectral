@@ -1,0 +1,5 @@
+numpy==2.1.2
+opencv_python==4.10.0.84
+psutil==6.1.0
+scipy==1.14.1
+tifffile==2024.9.20
