@@ -90,6 +90,7 @@ class Viewer
         this.vps[selVp].suspend();
         this.vps[selVp].setPan( this.vps[prevVp].imgLook.pan );
         this.vps[selVp].setZoom( this.vps[prevVp].imgLook.zoom );
+        this.vps[selVp].setRotation( this.vps[prevVp].imgLook.rotAngle );
         if ((selVp == 0) || (selVp == 1)) {
             if (this.wwl01) {
                 this.vps[selVp].setWidthAndLevel(this.wwl01.width, this.wwl01.level);
