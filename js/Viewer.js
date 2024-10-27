@@ -59,6 +59,9 @@ class Viewer
             BigLime.BitmapReader.loadImage(
                 'images/' + imgName, 
                 function(loadResult) {
+                    if (loadResult.errors) {
+                        console.log(loadResult.errors);
+                    }
                     this.vps[imgIndx].suspend();
                     this.vps[imgIndx].setImage(loadResult.img);
                     this.vps[imgIndx].setRotation(this.rotAngle);
